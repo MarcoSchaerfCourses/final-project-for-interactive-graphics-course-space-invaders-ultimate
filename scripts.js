@@ -8,7 +8,12 @@ import TwoPointStorm from './js/model/TwoPointStorm.js';
 import Enemy from './js/model/Enemy.js';
 import Star from './js/model/Star.js';
 import ViewMediatorFactory from './js/view/ViewMediaFactory.js';
+
+var elem = document.getElementById("myBar");
+ var bar = document.getElementById("myProgress");
 Globals.instance.manager.onLoad = function () {
+  
+    
     Globals.instance.environment = new Environment('Mars');
     const envController = new EnvironmentController(Globals.instance.environment);
     const factory = new ViewMediatorFactory();
@@ -18,8 +23,22 @@ Globals.instance.manager.onLoad = function () {
     Globals.instance.environment.addTurret(turret);
     const sun=new Star('sun');
     Globals.instance.environment.addStar(sun);
-}
+    elem.style.visibility = "hidden";
+    bar.style.visibility = "hidden";
 
+};
+Globals.instance.manager.onStart = function (url, itemsLoaded, itemsTotal) {
+        elem.style.visibility = "visible";
+
+}
+Globals.instance.manager.onProgress = function (url, itemsLoaded, itemsTotal) {
+
+        let width = (itemsLoaded/itemsTotal)*100;
+        console.log(width);
+        elem.style.width = width + '%';
+        elem.innerHTML = width + '%';
+
+};
 let turret_loader = new THREE.ColladaLoader(Globals.instance.manager);
 let enemy_loader = new THREE.ColladaLoader(Globals.instance.manager);
 let ground_loader = new THREE.MTLLoader(Globals.instance.manager);
