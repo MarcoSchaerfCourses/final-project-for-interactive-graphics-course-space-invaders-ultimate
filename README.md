@@ -10,7 +10,7 @@ Will you be able to destroy them before they land?
 
 ## Try it out
 
-The game is available and playable at this [link](https://donky1989.github.io/SpaceInvadersUltimate/).
+The game is available and playable at this [link](https://marcoschaerfcourses.github.io/space-invaders-ultimate/).
 
 ## Authors
 

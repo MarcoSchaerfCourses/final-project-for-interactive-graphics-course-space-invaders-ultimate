@@ -10,10 +10,8 @@ import Star from './js/model/Star.js';
 import ViewMediatorFactory from './js/view/ViewMediaFactory.js';
 
 var elem = document.getElementById("myBar");
- var bar = document.getElementById("myProgress");
+var bar = document.getElementById("myProgress");
 Globals.instance.manager.onLoad = function () {
-  
-    
     Globals.instance.environment = new Environment('Mars');
     const envController = new EnvironmentController(Globals.instance.environment);
     const factory = new ViewMediatorFactory();
@@ -32,17 +30,13 @@ Globals.instance.manager.onStart = function (url, itemsLoaded, itemsTotal) {
 
 }
 Globals.instance.manager.onProgress = function (url, itemsLoaded, itemsTotal) {
-
         let width = (itemsLoaded/itemsTotal)*100;
-        console.log(width);
         elem.style.width = width + '%';
         elem.innerHTML = width + '%';
-
 };
 let turret_loader = new THREE.ColladaLoader(Globals.instance.manager);
 let enemy_loader = new THREE.ColladaLoader(Globals.instance.manager);
 let ground_loader = new THREE.MTLLoader(Globals.instance.manager);
-
 ground_loader.load('./js/files/ground/ground.mtl', (materials)=>{
     materials.preload();
     new THREE.OBJLoader(Globals.instance.manager).setMaterials( materials ).load('./js/files/ground/ground.obj',(object)=>{       
@@ -50,7 +44,8 @@ ground_loader.load('./js/files/ground/ground.mtl', (materials)=>{
     });
 });
 turret_loader.load('./js/files/turret/turret.dae', (object)=>{
-    Globals.instance.loaded_objects.set('turret', object.scene);});
+    Globals.instance.loaded_objects.set('turret', object.scene);
+});
 enemy_loader.load('./js/files/enemy/enemy.dae', (object) => {
     Globals.instance.loaded_objects.set('enemy', object.scene);
 });
