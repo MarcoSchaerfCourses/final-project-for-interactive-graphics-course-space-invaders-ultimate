@@ -14,5 +14,5 @@ The game is available and playable at this [link](https://marcoschaerfcourses.gi
 
 ## Authors
 
-* **Federico Alfano** 1262220 - [donky1989](https://github.com/donky1989/)
+* **Federico Alfano** 1262220 - [federicoalfano](https://github.com/federicoalfano/)
 * **Luca Vargiu** 1422135 - [bersa125](https://github.com/bersa125)
